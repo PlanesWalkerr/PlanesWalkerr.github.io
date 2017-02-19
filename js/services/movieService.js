@@ -29,7 +29,7 @@ angular.module('myApp')
 
         // request to api
         function getResults(params) {
-            url = "http://www.omdbapi.com/?" + params;
+            url = "https://www.omdbapi.com/?" + params;
             if (!isCached(url)) {
                 // http request if url is not cached yet
                 return $http.get(url).then(cacheRequest);
