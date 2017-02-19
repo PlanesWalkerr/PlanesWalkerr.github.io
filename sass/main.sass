@@ -1,0 +1,58 @@
+$main-size: 18px
+$main-margin: 5px
+$main-indent: 40px
+
+/*main.template.html*/
+body
+  background:
+    image: url(../images/cork-wallet.png)
+    repeat: repeat
+    attachment: fixed
+
+label
+  font:
+    size: 20px
+    weight: normal !important
+
+.filter
+  padding: 2px
+
+input
+  &.year
+    font-size: $main-size
+    display: inline-block
+    width: 150px
+    margin-left: 15px
+
+.counter
+  margin: $main-margin
+  @media screen and (max-width: 750px)
+    text-align: center
+
+.message
+  text-indent: $main-indent
+
+.content
+  height: 470px
+  overflow-y: auto
+
+.image
+  width: 80%
+  margin: 0 auto
+  img
+    width: 100%
+    height: auto
+
+/*movieDetails.template.html*/
+
+.main-poster
+  width: 100%
+
+.info
+  font-size: $main-size
+  .info-block
+    div
+      margin: $main-margin
+
+.plot
+  text-indent: $main-indent

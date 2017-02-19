@@ -1,0 +1,68 @@
+/*main.template.html*/
+body {
+  background-image: url(../images/cork-wallet.png);
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+label {
+  font-size: 20px;
+  font-weight: normal !important;
+}
+
+.filter {
+  padding: 2px;
+}
+
+input.year {
+  font-size: 18px;
+  display: inline-block;
+  width: 150px;
+  margin-left: 15px;
+}
+
+.counter {
+  margin: 5px;
+}
+
+@media screen and (max-width: 750px) {
+  .counter {
+    text-align: center;
+  }
+}
+
+.message {
+  text-indent: 40px;
+}
+
+.content {
+  height: 470px;
+  overflow-y: auto;
+}
+
+.image {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+}
+
+/*movieDetails.template.html*/
+.main-poster {
+  width: 100%;
+}
+
+.info {
+  font-size: 18px;
+}
+
+.info .info-block div {
+  margin: 5px;
+}
+
+.plot {
+  text-indent: 40px;
+}

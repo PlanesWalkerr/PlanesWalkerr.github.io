@@ -1,0 +1,60 @@
+<div>
+    <div class="container">
+        <div class="alert alert-info text-center" ng-if="!details">
+            Loading results...
+        </div>
+    </div>
+    <div class="container-fluid" ng-if="details.Response==='True'">
+        <div class="row">
+            <div class="col-md-3 col-sm-5 left">
+                <img class="thumbnail main-poster"
+                     ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : details.Poster }}"
+                     alt="poster">
+            </div>
+            <div class="col-md-8 col-sm-7 info">
+                <span>
+                    <h2>{{details.Title}}, {{details.Year}}</h2>
+                </span>
+                <div class="info-block">
+                    <div>
+                        <span class="label label-info">Released on:</span> {{details.Released}}
+                    </div>
+                    <div>
+                        <span class="label label-info">Type:</span> {{details.Type}}
+                    </div>
+                    <div>
+                        <span class="label label-info">Runtime:</span> {{details.Runtime}}
+                    </div>
+                    <div>
+                        <span class="label label-info">Language:</span> {{details.Language}}
+                    </div>
+                </div>
+                <p class="text-justify plot">{{details.Plot}}</p>
+                <div class="info-block">
+                    <div>
+                        <span class="label label-primary">Directors :</span> {{ details.Director }}
+                    </div>
+                    <div>
+                        <span class="label label-primary">Actors :</span> {{ details.Actors }}
+                    </div>
+                    <div>
+                        <span class="label label-primary">Genre :</span> {{ details.Genre }}
+                    </div>
+                    <div class="info-block">
+                        <p>Ratings: <br>
+                            <strong>IMDb Rating</strong>:
+                            <span class="label label-success">{{ details.imdbRating }}</span> <br>
+                            <strong>Rotten Tomatoes</strong>:
+                            <span class="label label-success">{{ details.tomatoRating }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" ng-if="details.Response==='False'">
+        <div class="alert alert-danger text-center">
+            <strong>{{details.Error}}</strong> <br>
+            Back to <a ui-sref="home">Home</a> page
+        </div>
+    </div>
+</div>

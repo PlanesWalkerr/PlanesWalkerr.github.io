@@ -1,0 +1,64 @@
+<div ng-controller="movieCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 text-center filter">
+                <label class="radio-inline">
+                    <input type="radio" checked ng-model="movieType" ng-value="0">All
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="movieType" ng-value="1">Movie
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="movieType" ng-value="2">Series
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="movieType" ng-value="3">Episode
+                </label>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 text-center filter">
+                <div class="form-group">
+                    <label class="control-label">Year of release</label>
+                    <input type="text" mask="2999" restrict="reject" class="form-control year" ng-model="year">
+                </div>
+            </div>
+            <div class="col-lg-4 col-xs-12 filter">
+                <div class="input-group search-bar">
+                    <input type="text" placeholder="Enter movie name to search..." class="form-control"
+                           ng-model="search" onclick="select()" autofocus>
+                    <span class="input-group-addon bar-style" ng-click="initSearch(); fetch()">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container counter" ng-if="results.Response==='True'">
+        <span class="h4">Results of search: </span>
+        <span class="badge alert-success">{{totalMovies}}</span>
+    </div>
+    <div class="container message" ng-if="results.Response==='False'">
+        <div class="alert alert-info text-center">
+            <strong>{{results.Error}}</strong>
+        </div>
+    </div>
+    <div class="content container-fluid" when-scrolled="loadMore()">
+        <div class="row" ng-repeat="row in movies">
+            <div class="col-sm-1 hidden-xs"></div>
+            <div class="col-sm-2 col-sm-offset-0 col-xs-10 col-xs-offset-1" ng-repeat="movie in row">
+                <div class="image">
+                    <a ui-sref="movie({id:movie.imdbID})">
+                        <img class="img-thumbnail" alt="poster"
+                             ng-src="{{ movie.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : movie.Poster }}">
+                    </a>
+                </div>
+                <div class="text-center">
+                    <a class="h5" ui-sref="movie({id:movie.imdbID})">{{movie.Title}}</a>
+                    <div>
+                        <span class="year">{{movie.Year}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1 hidden-xs"></div>
+        </div>
+    </div>
+</div>
